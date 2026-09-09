@@ -230,9 +230,66 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
 .mobile-menu.open{transform:none}
 .mobile-menu a{color:#fff;font-family:var(--serif);font-size:1.8rem}
 .mobile-menu .close{position:absolute;top:28px;right:28px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer}
+
+/* ===== CTA POPUP ===== */
+.popup-overlay{position:fixed;inset:0;z-index:200;background:rgba(20,15,11,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease}
+.popup-overlay.open{opacity:1;visibility:visible}
+.popup{position:relative;width:100%;max-width:940px;background:var(--sand);border-radius:22px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.6);display:grid;grid-template-columns:.9fr 1.1fr;transform:translateY(24px) scale(.98);opacity:0;transition:transform .5s cubic-bezier(.2,.7,.3,1),opacity .5s ease}
+.popup-overlay.open .popup{transform:none;opacity:1}
+.popup-media{position:relative;min-height:100%;overflow:hidden}
+.popup-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.popup-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,11,.15),rgba(20,15,11,.55))}
+.popup-media .badge{position:absolute;left:24px;bottom:24px;z-index:2;color:#fff;font-family:var(--serif);font-size:1.4rem;line-height:1.15}
+.popup-media .badge span{display:block;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#f4c9a0;margin-bottom:8px}
+.popup-body{padding:46px 44px}
+.popup-body .eyebrow{display:block;margin-bottom:14px}
+.popup-body h3{font-size:2rem;color:var(--ink);margin-bottom:12px;line-height:1.1}
+.popup-body p{color:var(--ink-soft);font-size:1rem;margin-bottom:24px}
+.popup-form{display:flex;flex-direction:column;gap:12px}
+.popup-form input{width:100%;padding:.9em 1.1em;border:1px solid var(--line);border-radius:12px;font-family:var(--sans);font-size:.95rem;color:var(--ink);background:#fff;transition:border-color .25s}
+.popup-form input:focus{outline:none;border-color:var(--terracotta)}
+.popup-form .btn{justify-content:center;margin-top:4px;width:100%}
+.popup-note{font-size:.76rem;color:var(--ink-soft);opacity:.7;margin-top:14px;text-align:center}
+.popup-close{position:absolute;top:16px;right:18px;z-index:3;width:38px;height:38px;border-radius:50%;border:none;background:rgba(247,242,236,.9);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s}
+.popup-close:hover{background:#fff;transform:rotate(90deg)}
+.popup-thanks{display:none;text-align:center;padding:20px 0}
+.popup-thanks svg{color:var(--terracotta);margin-bottom:16px}
+.popup-thanks h3{font-size:1.8rem;margin-bottom:10px}
+.popup.done .popup-form,.popup.done .popup-intro{display:none}
+.popup.done .popup-thanks{display:block}
+@media(max-width:720px){
+  .popup{grid-template-columns:1fr;max-width:440px}
+  .popup-media{min-height:180px}
+  .popup-body{padding:34px 28px}
+}
+
+/* ===== COOKIE BANNER ===== */
+.cookie{position:fixed;left:24px;bottom:24px;z-index:150;max-width:420px;background:var(--ink);color:#fff;border-radius:18px;padding:26px 26px 22px;box-shadow:0 30px 70px -25px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.cookie.open{transform:none}
+.cookie h4{font-family:var(--serif);font-size:1.25rem;margin-bottom:8px;color:#fff}
+.cookie p{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:18px}
+.cookie p a{color:#f4c9a0;text-decoration:underline}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-actions .btn{padding:.7em 1.3em;font-size:.85rem}
+.btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.btn-line:hover{background:rgba(255,255,255,.1);border-color:#fff}
+@media(max-width:520px){.cookie{left:16px;right:16px;bottom:16px;max-width:none}}
+
+/* ===== ACCESSIBILITY ===== */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:16px;top:-60px;z-index:300;background:var(--terracotta);color:#fff;padding:12px 20px;border-radius:0 0 10px 10px;font-weight:600;font-size:.9rem;transition:top .25s}
+.skip-link:focus{top:0}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--terracotta);outline-offset:3px;border-radius:4px}
+header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-color:var(--terracotta)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero-bg img{animation:none;transform:none}
+  .reveal{opacity:1!important;transform:none!important}
+}
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <header id="header">
   <div class="nav">
@@ -240,7 +297,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
       <img src="assets/GHA Companies.svg" alt="GHA Companies logo">
       <span class="name">GHA Companies<b>Coachella Valley Builders</b></span>
     </a>
-    <nav class="menu">
+    <nav class="menu" aria-label="Primary">
       <a href="#residential">Residential</a>
       <a href="#communities">Communities</a>
       <a href="#custom">Custom</a>
@@ -249,9 +306,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="tel:7609691400" class="phone">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        (760) 969-1400
+      <a href="tel:7609691400" class="phone" aria-label="Call GHA Companies at (760) 969-1400">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span aria-hidden="true">(760) 969-1400</span>
       </a>
       <a href="#communities" class="btn btn-primary">Find Your Home</a>
       <button class="burger" aria-label="Open menu" id="burger"><span></span><span></span><span></span></button>
@@ -269,19 +326,20 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
   <a href="#contact">Contact</a>
 </div>
 
+<main id="main">
 <!-- ===== HERO ===== -->
-<section class="hero" id="top">
+<section class="hero" id="top" aria-label="Introduction">
   <div class="hero-bg"><img src="assets/img/orbit-latitude-aerial-xl.jpg" alt="Aerial view of a GHA Companies community in the Coachella Valley"></div>
   <div class="hero-inner">
     <p class="eyebrow">Building the Coachella Valley since 1988</p>
     <h1>Homes, and lives,<br><em>built to last</em></h1>
     <p>From residential enclaves to custom estates and commercial landmarks, GHA Companies crafts award winning spaces across California's desert communities.</p>
     <div class="hero-actions">
-      <a href="#communities" class="btn btn-primary">Explore Communities <span class="arrow">&rarr;</span></a>
+      <a href="#communities" class="btn btn-primary">Explore Communities <span class="arrow" aria-hidden="true">&rarr;</span></a>
       <a href="#custom" class="btn btn-ghost">Build Custom</a>
     </div>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+  <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>
 </section>
 
 <!-- ===== STATS ===== -->
@@ -309,7 +367,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <span>Residential</span>
           <h3>Find your new home</h3>
           <p>Thoughtfully designed new home communities built for the way desert families live.</p>
-          <a href="#communities" class="lnk">View communities <span class="arrow">&rarr;</span></a>
+          <a href="#communities" class="lnk">View communities <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
       <article class="div-card reveal d1">
@@ -318,7 +376,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <span>Commercial</span>
           <h3>Business and community</h3>
           <p>A quality foundation is essential to the success of your business goals.</p>
-          <a href="#commercial" class="lnk">See our work <span class="arrow">&rarr;</span></a>
+          <a href="#commercial" class="lnk">See our work <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
       <article class="div-card reveal d2">
@@ -327,7 +385,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <span>Custom</span>
           <h3>Dreams realized</h3>
           <p>Your vision, delivered with the best architects, designers and craftspeople.</p>
-          <a href="#custom" class="lnk">Start a project <span class="arrow">&rarr;</span></a>
+          <a href="#custom" class="lnk">Start a project <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </div>
@@ -353,7 +411,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <div class="loc">Palm Springs, CA</div>
           <h3>Latitude 61</h3>
           <p>Inspired by Palm Springs' iconic architectural legacy, Latitude 61 blends clean, linear designs with lush desert surroundings. Choose from 2 to 3 bedroom homes crafted with rooftop decks, pools, and sophisticated interiors.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow">&rarr;</span></a>
+          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
@@ -366,7 +424,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <div class="loc">Cathedral City, CA</div>
           <h3>Rio Del Sol</h3>
           <p>Four new home communities with onsite amenities, activities, exploration, relaxation and a custom quality crafted home by award winning GHA Companies. It is a way of life beyond your dreams.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow">&rarr;</span></a>
+          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
@@ -379,7 +437,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <div class="loc">Bermuda Dunes, CA</div>
           <h3>Volar&eacute;</h3>
           <p>The pinnacle of luxurious desert living, this exclusive gated enclave of only 18 homes offers an unparalleled lifestyle amidst breathtaking views and expansive elevated lots that promise utmost privacy.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow">&rarr;</span></a>
+          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
@@ -392,7 +450,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
           <div class="loc">Desert Hot Springs, CA</div>
           <h3>Aventura Palms</h3>
           <p>A limited collection of 34 homes offering three contemporary designs featuring one and two story, three and four bedroom residences with spectacular views of the San Jacinto mountains.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow">&rarr;</span></a>
+          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
 
@@ -445,11 +503,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
       <h2>Creating your dream home</h2>
       <p>Our team manages a roster of the best architects, subcontractors, interior designers and vendors to ensure every detail is considered, from the first sketch to the final walkthrough.</p>
       <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Award winning design and construction teams</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Handpicked craftspeople and premium vendors</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> A single point of contact, start to finish</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Award winning design and construction teams</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Handpicked craftspeople and premium vendors</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> A single point of contact, start to finish</li>
       </ul>
-      <a href="#contact" class="btn btn-primary">Start your custom home <span class="arrow">&rarr;</span></a>
+      <a href="#contact" class="btn btn-primary">Start your custom home <span class="arrow" aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="feature-imgs reveal d1">
       <img class="tall" src="assets/img/custom-home-01.jpg" alt="Custom home exterior by GHA Companies">
@@ -467,11 +525,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
       <h2>Building for your business</h2>
       <p>A quality foundation is essential to the success of your business goals. From retail centers to restaurants and financial institutions, GHA Companies delivers commercial spaces that perform and endure.</p>
       <ul>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Retail, restaurant and office construction</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Ground up builds and tenant improvements</li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Trusted by regional and national brands</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Retail, restaurant and office construction</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ground up builds and tenant improvements</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Trusted by regional and national brands</li>
       </ul>
-      <a href="#contact" class="btn btn-dark">Discuss your project <span class="arrow">&rarr;</span></a>
+      <a href="#contact" class="btn btn-dark">Discuss your project <span class="arrow" aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="feature-imgs reveal d1">
       <img class="tall" src="assets/img/staples.jpg" alt="Retail center built by GHA Companies">
@@ -540,6 +598,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
   </div>
 </section>
 
+</main>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
@@ -577,6 +637,46 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:80px 0 34px}
   </div>
 </footer>
 
+<!-- ===== CTA POPUP ===== -->
+<div class="popup-overlay" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+  <div class="popup">
+    <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
+    <div class="popup-media">
+      <img src="assets/img/orbit-res1-enclave.jpg" alt="New GHA Companies home">
+      <div class="badge"><span>Now Selling</span>Four communities, one valley</div>
+    </div>
+    <div class="popup-body">
+      <div class="popup-intro">
+        <span class="eyebrow">Join the interest list</span>
+        <h3 id="popupTitle">Be first through the door</h3>
+        <p>Get new release dates, pricing and community openings across the Coachella Valley sent straight to your inbox.</p>
+      </div>
+      <form class="popup-form" id="popupForm" novalidate>
+        <input type="text" name="name" placeholder="First name" aria-label="First name" required>
+        <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone">
+        <button type="submit" class="btn btn-primary">Notify me <span class="arrow" aria-hidden="true">&rarr;</span></button>
+        <p class="popup-note">We respect your inbox. Unsubscribe anytime.</p>
+      </form>
+      <div class="popup-thanks" role="status" aria-live="polite">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+        <h3>You're on the list</h3>
+        <p>Thank you. We will be in touch as soon as new homes are released.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COOKIE CONSENT ===== -->
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+  <h4 id="cookieTitle">We value your privacy</h4>
+  <p id="cookieDesc">We use cookies to improve your browsing experience, analyze site traffic and personalize content. See our <a href="#">privacy policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" id="cookieAccept">Accept all</button>
+    <button class="btn btn-line" id="cookieDecline">Essential only</button>
+  </div>
+</div>
+
 <script>
 // Header scroll state
 const header=document.getElementById('header');
@@ -596,6 +696,70 @@ const io=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
 },{threshold:.15,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== CTA POPUP (accessible modal) ===== */
+const popup=document.getElementById('popup');
+const popupCard=popup.querySelector('.popup');
+const popupClose=document.getElementById('popupClose');
+const popupForm=document.getElementById('popupForm');
+let lastFocused=null;
+const focusable='a[href],button:not([disabled]),input,[tabindex]:not([tabindex="-1"])';
+
+function openPopup(){
+  if(sessionStorage.getItem('gha_cta_seen')==='1')return showCookieIfNeeded();
+  lastFocused=document.activeElement;
+  popup.classList.add('open');
+  document.body.style.overflow='hidden';
+  const first=popup.querySelector('.popup-close');
+  if(first)first.focus();
+  document.addEventListener('keydown',trapPopup);
+}
+function closePopup(){
+  popup.classList.remove('open');
+  document.body.style.overflow='';
+  sessionStorage.setItem('gha_cta_seen','1');
+  document.removeEventListener('keydown',trapPopup);
+  if(lastFocused&&lastFocused.focus)lastFocused.focus();
+  showCookieIfNeeded();
+}
+function trapPopup(e){
+  if(e.key==='Escape'){closePopup();return;}
+  if(e.key!=='Tab')return;
+  const items=[...popupCard.querySelectorAll(focusable)].filter(el=>el.offsetParent!==null);
+  if(!items.length)return;
+  const first=items[0],last=items[items.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+}
+popupClose.addEventListener('click',closePopup);
+popup.addEventListener('mousedown',e=>{if(e.target===popup)closePopup();});
+popupForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!popupForm.checkValidity()){popupForm.reportValidity();return;}
+  popupCard.classList.add('done');
+  popupCard.querySelector('.popup-thanks h3').focus?.();
+  setTimeout(closePopup,2600);
+});
+// show once per session, shortly after load
+if(sessionStorage.getItem('gha_cta_seen')!=='1'){
+  setTimeout(openPopup,5000);
+}else{
+  showCookieIfNeeded();
+}
+
+/* ===== COOKIE CONSENT (after CTA closes) ===== */
+const cookie=document.getElementById('cookie');
+function showCookieIfNeeded(){
+  if(localStorage.getItem('gha_cookie_choice'))return;
+  if(popup.classList.contains('open'))return;
+  setTimeout(()=>cookie.classList.add('open'),500);
+}
+function setCookieChoice(v){
+  try{localStorage.setItem('gha_cookie_choice',v);}catch(e){}
+  cookie.classList.remove('open');
+}
+document.getElementById('cookieAccept').addEventListener('click',()=>setCookieChoice('all'));
+document.getElementById('cookieDecline').addEventListener('click',()=>setCookieChoice('essential'));
 </script>
 </body>
 </html>
