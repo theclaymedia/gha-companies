@@ -742,7 +742,7 @@ popupForm.addEventListener('submit',e=>{
 });
 // show once per session, shortly after load
 if(sessionStorage.getItem('gha_cta_seen')!=='1'){
-  setTimeout(openPopup,5000);
+  setTimeout(openPopup,2000);
 }else{
   showCookieIfNeeded();
 }
