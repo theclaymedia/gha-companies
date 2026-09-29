@@ -49,8 +49,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s ease}
 .brand img{width:66px;height:auto;transition:.4s}
 .brand .name{font-family:var(--serif);font-size:1.02rem;letter-spacing:.02em;color:#fff;line-height:1;transition:color .4s}
 .brand .name b{display:block;font-size:.62rem;font-family:var(--sans);font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px;transition:color .4s}
-.menu{display:flex;align-items:center;gap:34px}
-.menu a{font-size:.86rem;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:.01em;transition:color .25s;position:relative}
+.menu{display:flex;align-items:center;gap:28px}
+.menu a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.9);letter-spacing:.01em;transition:color .25s;position:relative;white-space:nowrap}
+.brand .name{white-space:nowrap}
+@media(max-width:1300px){.brand .name{display:none}.nav-cta{gap:14px}}
+@media(max-width:1150px){.nav-cta .phone{display:none}.menu{gap:22px}}
 .menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--terracotta);transition:width .3s}
 .menu a:hover{color:#fff}
 .menu a:hover::after{width:100%}
@@ -286,6 +289,183 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
   .hero-bg img{animation:none;transform:none}
   .reveal{opacity:1!important;transform:none!important}
 }
+
+/* ===== SHARED EXTRAS ===== */
+.btn-outline{background:transparent;color:var(--ink);border-color:rgba(27,22,19,.3)}
+.btn-outline:hover{border-color:var(--ink);background:rgba(27,22,19,.05);transform:translateY(-2px)}
+.ext{width:13px;height:13px;flex-shrink:0;opacity:.75}
+.comm-actions{display:flex;gap:12px;flex-wrap:wrap}
+.comm-body .comm-actions .btn{align-self:auto}
+.menu a.sales{color:#f4c9a0;font-weight:600}
+header.scrolled .menu a.sales{color:var(--terracotta)}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:.84rem;color:var(--ink-soft);line-height:1.45;cursor:pointer}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--terracotta);flex-shrink:0}
+
+/* ===== SALES BRIDGE ===== */
+.bridge{background:var(--ink);color:#fff;overflow:hidden}
+.bridge .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;padding-top:96px;padding-bottom:96px}
+.bridge h2{font-size:clamp(2rem,3.8vw,3rem);color:#fff;margin:14px 0 18px}
+.bridge p{color:rgba(255,255,255,.75);font-size:1.06rem;margin-bottom:30px;max-width:520px}
+.bridge-actions{display:flex;gap:14px;flex-wrap:wrap}
+.bridge-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:34px}
+.bridge-panel h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#f4c9a0;margin-bottom:20px}
+.bridge-list{list-style:none;display:flex;flex-direction:column}
+.bridge-list li a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,.12);color:#fff;transition:.25s}
+.bridge-list li:last-child a{border-bottom:1px solid rgba(255,255,255,.12)}
+.bridge-list li a:hover{padding-left:8px;color:#f4c9a0}
+.bridge-list li a b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem}
+.bridge-list li a small{display:block;font-size:.8rem;color:rgba(255,255,255,.55);margin-top:2px}
+.bridge-list li a .arrow{color:var(--terracotta);font-size:1.2rem}
+
+/* ===== TEAM ===== */
+.team{background:var(--white)}
+.team-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:70px}
+.team-intro h2{font-size:clamp(2.1rem,4vw,3.2rem);margin:16px 0 0}
+.team-intro p{color:var(--ink-soft);font-size:1.04rem;margin-bottom:16px}
+.awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.awards span{font-size:.76rem;font-weight:600;letter-spacing:.04em;padding:8px 14px;border:1px solid var(--line);border-radius:100px;color:var(--ink-soft);background:var(--sand)}
+.team-group{margin-top:54px}
+.team-group h3{font-family:var(--sans);font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--terracotta);margin-bottom:26px;display:flex;align-items:center;gap:16px}
+.team-group h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.team-grid{display:flex;flex-wrap:wrap;gap:26px;justify-content:center}
+.member{flex:0 1 calc(25% - 20px);min-width:210px;background:var(--sand);border-radius:18px;overflow:hidden;transition:.35s;text-align:left}
+.member:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.member .photo{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--sand-deep)}
+.member .photo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .7s cubic-bezier(.2,.7,.3,1)}
+.member:hover .photo img{transform:scale(1.05)}
+.member .info{padding:20px 22px 22px}
+.member .info h4{font-size:1.25rem;margin-bottom:4px;color:var(--ink)}
+.member .info p{font-size:.86rem;color:var(--ink-soft)}
+.member .info .contact{display:flex;gap:10px;margin-top:14px}
+.member .info .contact a{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:.25s}
+.member .info .contact a:hover{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.member .info .contact svg{width:15px;height:15px}
+
+/* ===== CHAT WIDGET ===== */
+.chat-fab{position:fixed;right:24px;bottom:24px;z-index:160;display:flex;align-items:center;gap:10px;background:var(--terracotta);color:#fff;border:none;border-radius:100px;padding:14px 20px 14px 16px;font-family:var(--sans);font-weight:600;font-size:.9rem;cursor:pointer;box-shadow:0 20px 40px -14px rgba(210,67,16,.7);transition:.3s cubic-bezier(.2,.7,.3,1)}
+.chat-fab:hover{transform:translateY(-3px);background:var(--terracotta-deep)}
+.chat-fab svg{width:22px;height:22px}
+.chat-fab .dot{position:absolute;top:8px;left:12px;width:10px;height:10px;border-radius:50%;background:#4ade80;border:2px solid var(--terracotta)}
+.chat-fab.hidden{opacity:0;visibility:hidden;transform:translateY(20px)}
+.chat{position:fixed;right:24px;bottom:24px;z-index:170;width:min(400px,calc(100vw - 32px));height:min(600px,calc(100vh - 100px));background:var(--white);border-radius:22px;box-shadow:0 40px 90px -30px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(24px) scale(.97);transition:.4s cubic-bezier(.2,.7,.3,1)}
+.chat.open{opacity:1;visibility:visible;transform:none}
+.chat-head{display:flex;align-items:center;gap:12px;padding:18px 18px 16px;background:var(--ink);color:#fff}
+.chat-head .avatar{width:40px;height:40px;border-radius:50%;background:var(--terracotta);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem;flex-shrink:0}
+.chat-head .who b{display:block;font-size:.96rem;font-weight:600}
+.chat-head .who span{display:flex;align-items:center;gap:6px;font-size:.74rem;color:rgba(255,255,255,.65)}
+.chat-head .who span::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ade80}
+.chat-head .close{margin-left:auto;background:rgba(255,255,255,.1);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.chat-log{flex:1;overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:12px;background:var(--sand)}
+.msg{max-width:86%;padding:12px 15px;border-radius:16px;font-size:.92rem;line-height:1.5;animation:msgIn .35s cubic-bezier(.2,.7,.3,1)}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.bot{align-self:flex-start;background:#fff;color:var(--ink);border-bottom-left-radius:4px;box-shadow:0 6px 20px -12px rgba(27,22,19,.3)}
+.msg.user{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}
+.msg a{color:var(--terracotta);font-weight:600;text-decoration:underline}
+.msg .links{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.msg .links a{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;background:var(--sand);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:.85rem;color:var(--ink);transition:.2s}
+.msg .links a:hover{border-color:var(--terracotta);color:var(--terracotta)}
+.msg.typing{display:flex;gap:5px;padding:14px 16px}
+.msg.typing i{width:7px;height:7px;border-radius:50%;background:rgba(27,22,19,.35);animation:blink 1.2s infinite}
+.msg.typing i:nth-child(2){animation-delay:.2s}.msg.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px;background:var(--sand)}
+.chips button{background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 14px;font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--ink);cursor:pointer;transition:.2s}
+.chips button:hover{border-color:var(--terracotta);color:var(--terracotta)}
+.chat-form{display:flex;gap:8px;padding:14px;border-top:1px solid var(--line);background:#fff}
+.chat-form input{flex:1;border:1px solid var(--line);border-radius:100px;padding:.8em 1.1em;font-family:var(--sans);font-size:.92rem;color:var(--ink)}
+.chat-form input:focus{outline:none;border-color:var(--terracotta)}
+.chat-form button{width:44px;height:44px;border-radius:50%;border:none;background:var(--terracotta);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s}
+.chat-form button:hover{background:var(--terracotta-deep)}
+.chat-form button svg{width:18px;height:18px}
+.chat-foot{font-size:.7rem;color:var(--ink-soft);opacity:.6;text-align:center;padding:0 14px 10px;background:#fff}
+
+/* ===== SCROLL PROMPTS ===== */
+.nudge{position:fixed;right:24px;bottom:96px;z-index:155;width:min(360px,calc(100vw - 32px));background:#fff;border-radius:18px;box-shadow:0 30px 70px -25px rgba(27,22,19,.5);overflow:hidden;transform:translateX(120%);transition:transform .55s cubic-bezier(.2,.7,.3,1)}
+.nudge.open{transform:none}
+.nudge .nudge-img{height:120px;overflow:hidden;position:relative}
+.nudge .nudge-img img{width:100%;height:100%;object-fit:cover}
+.nudge .nudge-img span{position:absolute;left:14px;bottom:12px;color:#fff;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.nudge .nudge-body{padding:18px 20px 20px}
+.nudge h4{font-size:1.25rem;margin-bottom:6px;color:var(--ink)}
+.nudge p{font-size:.86rem;color:var(--ink-soft);margin-bottom:14px}
+.nudge .nudge-actions{display:flex;gap:8px;flex-wrap:wrap}
+.nudge .nudge-actions .btn{padding:.7em 1.2em;font-size:.82rem}
+.nudge .dismiss{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.9);color:var(--ink);font-size:1.15rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* ===== ACCESSIBILITY WIDGET ===== */
+.a11y-fab{position:fixed;left:24px;bottom:24px;z-index:160;width:52px;height:52px;border:none;border-radius:50%;background:var(--ink);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px -12px rgba(0,0,0,.55);transition:.25s cubic-bezier(.2,.7,.3,1)}
+.a11y-fab:hover{background:var(--terracotta);transform:translateY(-3px)}
+.a11y-fab svg{width:26px;height:26px}
+.a11y-panel{position:fixed;left:24px;bottom:24px;z-index:165;width:min(340px,calc(100vw - 32px));max-height:calc(100vh - 48px);overflow-y:auto;background:#fff;border-radius:20px;box-shadow:0 40px 90px -30px rgba(0,0,0,.55);transform:translateY(24px) scale(.97);opacity:0;visibility:hidden;transition:.4s cubic-bezier(.2,.7,.3,1)}
+.a11y-panel.open{transform:none;opacity:1;visibility:visible}
+.cookie{bottom:92px}
+@media(max-width:520px){.a11y-fab{left:16px;bottom:16px}.cookie{bottom:84px}}
+.a11y-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:var(--ink);color:#fff}
+.a11y-head b{font-size:.98rem;font-weight:600}
+.a11y-head .close{background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.a11y-list{list-style:none;padding:10px 12px}
+.a11y-list li button{width:100%;display:flex;align-items:center;gap:14px;padding:13px 12px;border:none;border-radius:12px;background:transparent;font-family:var(--sans);font-size:.92rem;color:var(--ink);text-align:left;cursor:pointer;transition:.2s}
+.a11y-list li button:hover{background:var(--sand)}
+.a11y-list li button svg{width:20px;height:20px;color:var(--terracotta);flex-shrink:0}
+.a11y-list li button .sw{margin-left:auto;width:40px;height:22px;border-radius:100px;background:rgba(27,22,19,.18);position:relative;flex-shrink:0;transition:.25s}
+.a11y-list li button .sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.25s}
+.a11y-list li button[aria-pressed="true"] .sw{background:var(--terracotta)}
+.a11y-list li button[aria-pressed="true"] .sw::after{left:21px}
+.a11y-reset{margin:4px 12px 14px;width:calc(100% - 24px);justify-content:center}
+.a11y-statement{font-size:.74rem;color:var(--ink-soft);opacity:.75;padding:0 20px 18px;line-height:1.5}
+.a11y-statement a{text-decoration:underline}
+
+/* body modifiers set by the accessibility widget */
+body.a11y-text{font-size:1.15rem}
+body.a11y-text .menu a{font-size:1rem}
+body.a11y-spacing{letter-spacing:.06em;word-spacing:.12em;line-height:1.9}
+body.a11y-spacing p{margin-bottom:1em}
+body.a11y-font,body.a11y-font h1,body.a11y-font h2,body.a11y-font h3,body.a11y-font h4,body.a11y-font .brand .name{font-family:Verdana,Arial,Helvetica,sans-serif!important;letter-spacing:0}
+body.a11y-links a{text-decoration:underline!important}
+body.a11y-contrast{--sand:#ffffff;--sand-deep:#ffffff;--ink:#000000;--ink-soft:#000000;--terracotta:#9a2f08;--terracotta-deep:#6d2105;--line:rgba(0,0,0,.4);--white:#ffffff}
+body.a11y-contrast .hero-bg::after,body.a11y-contrast .cta-bg::after{background:rgba(0,0,0,.78)}
+body.a11y-contrast .div-card::after{background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.95) 100%)}
+body.a11y-contrast .stat .lbl,body.a11y-contrast .soon-card .meta,body.a11y-contrast .soon-card .units,body.a11y-contrast footer,body.a11y-contrast .foot-col a,body.a11y-contrast .foot-col p,body.a11y-contrast .disclaimer,body.a11y-contrast .foot-bottom,body.a11y-contrast .bridge p,body.a11y-contrast .cookie p{color:#fff}
+body.a11y-motion *,body.a11y-motion *::before,body.a11y-motion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+body.a11y-motion .hero-bg img{transform:none}
+body.a11y-motion .reveal{opacity:1!important;transform:none!important}
+body.a11y-focus a:focus,body.a11y-focus button:focus,body.a11y-focus input:focus{outline:4px solid #ffd60a!important;outline-offset:3px!important;box-shadow:0 0 0 8px rgba(0,0,0,.85)!important}
+body.a11y-cursor,body.a11y-cursor a,body.a11y-cursor button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l16 12-7 1 4 8-3 1-4-8-6 5z' fill='%23000' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2,auto!important}
+
+/* ===== COOKIE PREFERENCES ===== */
+.cookie-prefs{display:none;margin:4px 0 18px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.cookie.manage .cookie-prefs{display:block}
+.cookie.manage .cookie-actions .manage-only{display:inline-flex}
+.cookie-actions .manage-only{display:none}
+.pref{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.pref:last-child{border-bottom:none}
+.pref b{display:block;font-size:.86rem;font-weight:600;color:#fff}
+.pref small{display:block;font-size:.74rem;color:rgba(255,255,255,.55);line-height:1.4;margin-top:2px}
+.pref .sw{position:relative;width:40px;height:22px;border-radius:100px;background:rgba(255,255,255,.2);border:none;cursor:pointer;flex-shrink:0;transition:.25s}
+.pref .sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.25s}
+.pref .sw[aria-checked="true"]{background:var(--terracotta)}
+.pref .sw[aria-checked="true"]::after{left:21px}
+.pref .sw[disabled]{opacity:.6;cursor:not-allowed}
+.cookie .link-btn{background:none;border:none;color:#f4c9a0;text-decoration:underline;font-family:var(--sans);font-size:.85rem;cursor:pointer;padding:0;margin-left:auto}
+
+/* ===== FOOTER LEGAL ===== */
+.foot-legal{display:flex;flex-wrap:wrap;gap:6px 22px;padding-top:22px;font-size:.8rem}
+.foot-legal a,.foot-legal button{color:rgba(255,255,255,.6);background:none;border:none;font-family:var(--sans);font-size:.8rem;cursor:pointer;padding:0;transition:color .25s}
+.foot-legal a:hover,.foot-legal button:hover{color:#f4c9a0}
+
+@media(max-width:1000px){
+  .bridge .wrap{grid-template-columns:1fr;gap:40px}
+  .team-intro{grid-template-columns:1fr;gap:20px}
+  .member{flex-basis:calc(33.33% - 18px)}
+}
+@media(max-width:640px){
+  .member{flex-basis:calc(50% - 13px);min-width:150px}
+  .chat{right:0;bottom:0;width:100vw;height:100vh;border-radius:0}
+  .chat-fab{right:16px;bottom:16px;padding:14px}
+  .chat-fab span{display:none}
+  .nudge{right:16px;bottom:88px}
+  .cookie.open~.chat-fab{bottom:calc(16px + 250px)}
+}
 </style>
 </head>
 <body>
@@ -298,11 +478,12 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
       <span class="name">GHA Companies<b>Coachella Valley Builders</b></span>
     </a>
     <nav class="menu" aria-label="Primary">
-      <a href="#residential">Residential</a>
       <a href="#communities">Communities</a>
       <a href="#custom">Custom</a>
       <a href="#commercial">Commercial</a>
+      <a href="#team">Team</a>
       <a href="#community">Community</a>
+      <a href="https://www.ghasales.com/" class="sales" target="_blank" rel="noopener">GHA Sales</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -318,11 +499,12 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="close" id="closeMenu" aria-label="Close menu">&times;</button>
-  <a href="#residential">Residential</a>
   <a href="#communities">Communities</a>
   <a href="#custom">Custom</a>
   <a href="#commercial">Commercial</a>
+  <a href="#team">Team</a>
   <a href="#community">Community</a>
+  <a href="https://www.ghasales.com/" target="_blank" rel="noopener" style="color:#f4c9a0">GHA Sales</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -411,7 +593,10 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
           <div class="loc">Palm Springs, CA</div>
           <h3>Latitude 61</h3>
           <p>Inspired by Palm Springs' iconic architectural legacy, Latitude 61 blends clean, linear designs with lush desert surroundings. Choose from 2 to 3 bedroom homes crafted with rooftop decks, pools, and sophisticated interiors.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <div class="comm-actions">
+            <a href="#contact" class="btn btn-dark">Schedule a tour <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.ghasales.com/" class="btn btn-outline" target="_blank" rel="noopener">View listings on GHA Sales <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a>
+          </div>
         </div>
       </article>
 
@@ -424,7 +609,10 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
           <div class="loc">Cathedral City, CA</div>
           <h3>Rio Del Sol</h3>
           <p>Four new home communities with onsite amenities, activities, exploration, relaxation and a custom quality crafted home by award winning GHA Companies. It is a way of life beyond your dreams.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <div class="comm-actions">
+            <a href="#contact" class="btn btn-dark">Schedule a tour <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.ghasales.com/" class="btn btn-outline" target="_blank" rel="noopener">View listings on GHA Sales <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a>
+          </div>
         </div>
       </article>
 
@@ -437,7 +625,10 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
           <div class="loc">Bermuda Dunes, CA</div>
           <h3>Volar&eacute;</h3>
           <p>The pinnacle of luxurious desert living, this exclusive gated enclave of only 18 homes offers an unparalleled lifestyle amidst breathtaking views and expansive elevated lots that promise utmost privacy.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <div class="comm-actions">
+            <a href="#contact" class="btn btn-dark">Schedule a tour <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.ghasales.com/" class="btn btn-outline" target="_blank" rel="noopener">View listings on GHA Sales <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a>
+          </div>
         </div>
       </article>
 
@@ -450,10 +641,37 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
           <div class="loc">Desert Hot Springs, CA</div>
           <h3>Aventura Palms</h3>
           <p>A limited collection of 34 homes offering three contemporary designs featuring one and two story, three and four bedroom residences with spectacular views of the San Jacinto mountains.</p>
-          <a href="#contact" class="btn btn-dark">Visit <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <div class="comm-actions">
+            <a href="#contact" class="btn btn-dark">Schedule a tour <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="https://www.ghasales.com/" class="btn btn-outline" target="_blank" rel="noopener">View listings on GHA Sales <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a>
+          </div>
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ===== SALES BRIDGE ===== -->
+<section class="bridge" id="sales" aria-labelledby="bridgeTitle">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="color:#f4c9a0">Ready to see what's available?</span>
+      <h2 id="bridgeTitle">Company story here, home listings on GHA Sales</h2>
+      <p>GHA Companies is where you learn who we are and how we build. GHA Sales is where you browse move in ready homes, floor plans, pricing and availability, and connect with a sales manager for any community.</p>
+      <div class="bridge-actions">
+        <a href="https://www.ghasales.com/" class="btn btn-primary" target="_blank" rel="noopener">Browse homes on GHA Sales <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a>
+        <a href="#team" class="btn btn-ghost">Meet our sales team</a>
+      </div>
+    </div>
+    <div class="bridge-panel reveal d1">
+      <h4>Jump straight to a community</h4>
+      <ul class="bridge-list">
+        <li><a href="https://www.ghasales.com/" target="_blank" rel="noopener"><span><b>Latitude 61</b><small>Palm Springs, CA</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="https://www.ghasales.com/" target="_blank" rel="noopener"><span><b>Rio Del Sol</b><small>Cathedral City, CA</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="https://www.ghasales.com/" target="_blank" rel="noopener"><span><b>Volar&eacute;</b><small>Bermuda Dunes, CA</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="https://www.ghasales.com/" target="_blank" rel="noopener"><span><b>Aventura Palms</b><small>Desert Hot Springs, CA</small></span><span class="arrow" aria-hidden="true">&rarr;</span></a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -539,6 +757,98 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
   </div>
 </section>
 
+<!-- ===== TEAM ===== -->
+<section class="team pad" id="team">
+  <div class="wrap">
+    <div class="team-intro">
+      <div class="reveal">
+        <span class="eyebrow">Meet the team</span>
+        <h2>The people behind every GHA home</h2>
+      </div>
+      <div class="reveal d1">
+        <p>Recognized as the largest privately owned homebuilding company in the Coachella Valley, GHA Companies has made home ownership possible for families across the desert for more than three decades. Under the guidance of President and CEO Mario Gonzales, the company has earned dozens of industry accolades for quality, design and value.</p>
+        <div class="awards" aria-label="Industry awards">
+          <span>BIA Builder of the Year</span>
+          <span>NAHB Best Overall Project</span>
+          <span>Gold Nugget Awards</span>
+          <span>Builder's Choice Awards</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-group reveal">
+      <h3>Leadership</h3>
+      <div class="team-grid">
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/mario-gonzales.webp" alt="Mario J. Gonzales" loading="lazy"></div>
+          <div class="info"><h4>Mario J. Gonzales</h4><p>CEO and President</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/jeff-chittenden.jpg" alt="Jeff Chittenden" loading="lazy"></div>
+          <div class="info"><h4>Jeff Chittenden</h4><p>Chief Financial Officer</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/alex-gonzales.webp" alt="Alex R. Gonzales" loading="lazy"></div>
+          <div class="info"><h4>Alex R. Gonzales</h4><p>Vice President</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/joe-martinez.webp" alt="Joe Martinez" loading="lazy"></div>
+          <div class="info"><h4>Joe Martinez</h4><p>Vice President of Operations</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/patrick-schicht.jpg" alt="Patrick Schicht" loading="lazy"></div>
+          <div class="info"><h4>Patrick Schicht</h4><p>Vice President of Construction</p></div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/cheryl-gonzales.webp" alt="Cheryl Gonzales" loading="lazy"></div>
+          <div class="info"><h4>Cheryl Gonzales</h4><p>GHA Realty Broker</p></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="team-group reveal">
+      <h3>Sales team</h3>
+      <div class="team-grid">
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/rhonda-knerr.jpg" alt="Rhonda Knerr" loading="lazy"></div>
+          <div class="info">
+            <h4>Rhonda Knerr</h4><p>Director of Sales</p>
+            <div class="contact"><a href="tel:7609691400" aria-label="Call Rhonda Knerr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="#contact" aria-label="Email Rhonda Knerr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/colleena.jpg" alt="Colleena Vogt" loading="lazy"></div>
+          <div class="info">
+            <h4>Colleena Vogt</h4><p>Sales Manager</p>
+            <div class="contact"><a href="tel:7609691400" aria-label="Call Colleena Vogt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="#contact" aria-label="Email Colleena Vogt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/chirstina-ewalt.webp" alt="Christina Ewalt" loading="lazy"></div>
+          <div class="info">
+            <h4>Christina Ewalt</h4><p>Sales Manager</p>
+            <div class="contact"><a href="tel:7609691400" aria-label="Call Christina Ewalt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="#contact" aria-label="Email Christina Ewalt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/todd-brinton.jpg" alt="Todd Brinton" loading="lazy"></div>
+          <div class="info">
+            <h4>Todd Brinton</h4><p>Sales Manager</p>
+            <div class="contact"><a href="tel:7609691400" aria-label="Call Todd Brinton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="#contact" aria-label="Email Todd Brinton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></div>
+          </div>
+        </article>
+        <article class="member">
+          <div class="photo"><img src="assets/img/team/abby-helfand.webp" alt="Abby Helfand" loading="lazy"></div>
+          <div class="info">
+            <h4>Abby Helfand</h4><p>Sales Manager</p>
+            <div class="contact"><a href="tel:7609691400" aria-label="Call Abby Helfand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a><a href="#contact" aria-label="Email Abby Helfand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== COMMUNITY / GIVING ===== -->
 <section class="giving pad" id="community">
   <div class="wrap">
@@ -610,10 +920,11 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
       </div>
       <div class="foot-col">
         <h5>Build</h5>
-        <a href="#residential">Residential</a>
         <a href="#communities">Communities</a>
         <a href="#custom">Custom Homes</a>
         <a href="#commercial">Commercial</a>
+        <a href="#team">Our Team</a>
+        <a href="https://www.ghasales.com/" target="_blank" rel="noopener">GHA Sales Listings</a>
       </div>
       <div class="foot-col">
         <h5>Community</h5>
@@ -630,6 +941,13 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
       </div>
     </div>
     <p class="disclaimer">The Builder reserves the right to modify plans, features, specifications and prices without notice or obligation. All square footages and dimensions are approximations only and may vary per plan or elevation or from the actual home constructed. All renderings, brochures and marketing materials are concepts only, are not intended to depict actual homes and are subject to change. DRE#01527307</p>
+    <nav class="foot-legal" aria-label="Legal and privacy">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Accessibility Statement</a>
+      <button type="button" id="doNotSell">Do Not Sell or Share My Personal Information</button>
+      <button type="button" id="cookiePrefsLink">Cookie Preferences</button>
+    </nav>
     <div class="foot-bottom">
       <div>&copy; 2026 GHA Companies. All rights reserved.</div>
       <div class="badges">Equal Housing Opportunity</div>
@@ -654,14 +972,15 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
       <form class="popup-form" id="popupForm" novalidate>
         <input type="text" name="name" placeholder="First name" aria-label="First name" required>
         <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
-        <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone">
+        <input type="tel" name="phone" placeholder="Mobile number" aria-label="Mobile number">
+        <label class="check"><input type="checkbox" name="sms" id="smsOpt" checked> Text me back. A sales manager will reply within minutes during business hours.</label>
         <button type="submit" class="btn btn-primary">Notify me <span class="arrow" aria-hidden="true">&rarr;</span></button>
         <p class="popup-note">We respect your inbox. Unsubscribe anytime.</p>
       </form>
       <div class="popup-thanks" role="status" aria-live="polite">
         <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
         <h3>You're on the list</h3>
-        <p>Thank you. We will be in touch as soon as new homes are released.</p>
+        <p id="thanksMsg">Thank you. We will be in touch as soon as new homes are released.</p>
       </div>
     </div>
   </div>
@@ -669,13 +988,100 @@ header.scrolled a:focus-visible,header.scrolled button:focus-visible{outline-col
 
 <!-- ===== COOKIE CONSENT ===== -->
 <div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
-  <h4 id="cookieTitle">We value your privacy</h4>
-  <p id="cookieDesc">We use cookies to improve your browsing experience, analyze site traffic and personalize content. See our <a href="#">privacy policy</a>.</p>
+  <h4 id="cookieTitle">Your privacy choices</h4>
+  <p id="cookieDesc">We use cookies to run this site, understand traffic and personalize content. Under the California Consumer Privacy Act you can opt out of the sale or sharing of your personal information at any time. See our <a href="#">privacy policy</a>.</p>
+  <div class="cookie-prefs" id="cookiePrefs">
+    <div class="pref">
+      <div><b>Strictly necessary</b><small>Required for the site to work. Always on.</small></div>
+      <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Strictly necessary cookies, always on" disabled></button>
+    </div>
+    <div class="pref">
+      <div><b>Analytics</b><small>Helps us understand which pages and communities visitors care about.</small></div>
+      <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Analytics cookies" data-pref="analytics"></button>
+    </div>
+    <div class="pref">
+      <div><b>Marketing</b><small>Lets us show relevant homes and offers on other sites.</small></div>
+      <button type="button" class="sw" role="switch" aria-checked="true" aria-label="Marketing cookies" data-pref="marketing"></button>
+    </div>
+    <div class="pref">
+      <div><b>Do not sell or share my personal information</b><small>Opts you out of targeted advertising under CCPA and CPRA.</small></div>
+      <button type="button" class="sw" role="switch" aria-checked="false" aria-label="Do not sell or share my personal information" data-pref="donotsell"></button>
+    </div>
+  </div>
   <div class="cookie-actions">
     <button class="btn btn-primary" id="cookieAccept">Accept all</button>
-    <button class="btn btn-line" id="cookieDecline">Essential only</button>
+    <button class="btn btn-line" id="cookieDecline">Reject non-essential</button>
+    <button class="btn btn-line manage-only" id="cookieSave">Save preferences</button>
+    <button type="button" class="link-btn" id="cookieManage" aria-expanded="false" aria-controls="cookiePrefs">Manage</button>
   </div>
 </div>
+
+<!-- ===== SCROLL PROMPTS ===== -->
+<aside class="nudge" id="nudge1" aria-label="Volare private tour offer">
+  <button class="dismiss" data-dismiss="nudge1" aria-label="Dismiss">&times;</button>
+  <div class="nudge-img"><img src="assets/img/bkg-volare-xl.jpg" alt=""><span>Only 18 homesites</span></div>
+  <div class="nudge-body">
+    <h4>Curious about Volar&eacute;?</h4>
+    <p>Private, elevated lots in Bermuda Dunes are going quickly. Book a walkthrough with our sales team.</p>
+    <div class="nudge-actions">
+      <button class="btn btn-primary" data-open-popup>Request a private tour</button>
+      <button class="btn btn-outline" data-dismiss="nudge1">Maybe later</button>
+    </div>
+  </div>
+</aside>
+<aside class="nudge" id="nudge2" aria-label="Pricing and availability">
+  <button class="dismiss" data-dismiss="nudge2" aria-label="Dismiss">&times;</button>
+  <div class="nudge-img"><img src="assets/img/bkg-latitude61-xl.jpg" alt=""><span>Pricing and availability</span></div>
+  <div class="nudge-body">
+    <h4>Want current pricing?</h4>
+    <p>Floor plans, quick move in homes and real time availability live on GHA Sales.</p>
+    <div class="nudge-actions">
+      <a href="https://www.ghasales.com/" class="btn btn-primary" target="_blank" rel="noopener">Browse GHA Sales</a>
+      <button class="btn btn-outline" data-dismiss="nudge2">No thanks</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== ACCESSIBILITY WIDGET ===== -->
+<button class="a11y-fab" id="a11yFab" aria-label="Open accessibility options" aria-expanded="false" aria-controls="a11yPanel">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 10.5c3.3.8 6.7.8 10 0M12 11v3.5M12 14.5 9.5 19M12 14.5l2.5 4.5"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle">
+  <div class="a11y-head"><b id="a11yTitle">Accessibility options</b><button class="close" id="a11yClose" aria-label="Close accessibility options">&times;</button></div>
+  <ul class="a11y-list">
+    <li><button type="button" data-a11y="a11y-text" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>Larger text<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-contrast" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>High contrast<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-spacing" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Text spacing<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-font" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 20 12 4l6 16M8.5 14h7"/></svg>Readable font<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-links" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>Underline links<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-motion" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>Pause animations<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-focus" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><circle cx="12" cy="12" r="3"/></svg>Highlight focus<span class="sw" aria-hidden="true"></span></button></li>
+    <li><button type="button" data-a11y="a11y-cursor" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 2l16 12-7 1 4 8-3 1-4-8-6 5z"/></svg>Large cursor<span class="sw" aria-hidden="true"></span></button></li>
+  </ul>
+  <button type="button" class="btn btn-outline a11y-reset" id="a11yReset">Reset all settings</button>
+  <p class="a11y-statement">GHA Companies is committed to making this site usable by everyone. If you need help with any content, call <a href="tel:7609691400">(760) 969-1400</a> and we will assist you.</p>
+</div>
+
+<!-- ===== CHAT ASSISTANT ===== -->
+<button class="chat-fab" id="chatFab" aria-label="Chat with the GHA assistant" aria-expanded="false" aria-controls="chat">
+  <span class="dot" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-4.5A8 8 0 0 1 5 4.6 8 8 0 0 1 13 4a8 8 0 0 1 8 8z"/></svg>
+  <span>Ask about our homes</span>
+</button>
+<section class="chat" id="chat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatSub">
+  <div class="chat-head">
+    <div class="avatar" aria-hidden="true">G</div>
+    <div class="who"><b id="chatTitle">GHA Home Assistant</b><span id="chatSub">Online now</span></div>
+    <button class="close" id="chatClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-relevant="additions"></div>
+  <div class="chips" id="chatChips" aria-label="Suggested questions"></div>
+  <form class="chat-form" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Ask about communities, pricing, tours..." aria-label="Type your message" autocomplete="off">
+    <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m5 12 14-7-7 14-2-7z"/></svg></button>
+  </form>
+  <p class="chat-foot">Answers are generated by an assistant. A sales manager can take over at any time.</p>
+</section>
 
 <script>
 // Header scroll state
@@ -736,10 +1142,19 @@ popup.addEventListener('mousedown',e=>{if(e.target===popup)closePopup();});
 popupForm.addEventListener('submit',e=>{
   e.preventDefault();
   if(!popupForm.checkValidity()){popupForm.reportValidity();return;}
+  const wantsText=document.getElementById('smsOpt').checked&&popupForm.phone.value.trim();
+  document.getElementById('thanksMsg').textContent=wantsText
+    ?'Thank you. A GHA sales manager will text you shortly to answer questions or set up a tour.'
+    :'Thank you. We will be in touch as soon as new homes are released.';
   popupCard.classList.add('done');
-  popupCard.querySelector('.popup-thanks h3').focus?.();
-  setTimeout(closePopup,2600);
+  setTimeout(closePopup,3200);
 });
+document.querySelectorAll('[data-open-popup]').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.nudge.open').forEach(n=>n.classList.remove('open'));
+  sessionStorage.removeItem('gha_cta_seen');
+  popupCard.classList.remove('done');
+  openPopup();
+}));
 // show once per session, shortly after load
 if(sessionStorage.getItem('gha_cta_seen')!=='1'){
   setTimeout(openPopup,2000);
@@ -747,19 +1162,226 @@ if(sessionStorage.getItem('gha_cta_seen')!=='1'){
   showCookieIfNeeded();
 }
 
-/* ===== COOKIE CONSENT (after CTA closes) ===== */
+/* ===== COOKIE CONSENT + PRIVACY CHOICES (after CTA closes) ===== */
 const cookie=document.getElementById('cookie');
+const prefSwitches=[...cookie.querySelectorAll('.sw[data-pref]')];
+const store=(k,v)=>{try{localStorage.setItem(k,v);}catch(e){}};
+const load=k=>{try{return localStorage.getItem(k);}catch(e){return null;}};
 function showCookieIfNeeded(){
-  if(localStorage.getItem('gha_cookie_choice'))return;
+  if(load('gha_cookie_choice'))return;
   if(popup.classList.contains('open'))return;
   setTimeout(()=>cookie.classList.add('open'),500);
 }
-function setCookieChoice(v){
-  try{localStorage.setItem('gha_cookie_choice',v);}catch(e){}
-  cookie.classList.remove('open');
+function readPrefs(){
+  const p={necessary:true};
+  prefSwitches.forEach(s=>p[s.dataset.pref]=s.getAttribute('aria-checked')==='true');
+  return p;
 }
-document.getElementById('cookieAccept').addEventListener('click',()=>setCookieChoice('all'));
-document.getElementById('cookieDecline').addEventListener('click',()=>setCookieChoice('essential'));
+function applyPrefs(p){
+  prefSwitches.forEach(s=>s.setAttribute('aria-checked',String(!!p[s.dataset.pref])));
+}
+function saveCookieChoice(p){
+  store('gha_cookie_choice',JSON.stringify(p));
+  cookie.classList.remove('open','manage');
+  document.getElementById('cookieManage').setAttribute('aria-expanded','false');
+}
+function openCookieManager(){
+  const saved=load('gha_cookie_choice');
+  if(saved){try{applyPrefs(JSON.parse(saved));}catch(e){}}
+  cookie.classList.add('open','manage');
+  document.getElementById('cookieManage').setAttribute('aria-expanded','true');
+  cookie.querySelector('.sw[data-pref]').focus();
+}
+prefSwitches.forEach(s=>s.addEventListener('click',()=>{
+  const on=s.getAttribute('aria-checked')!=='true';
+  s.setAttribute('aria-checked',String(on));
+  if(s.dataset.pref==='donotsell'&&on){
+    prefSwitches.filter(x=>x.dataset.pref==='marketing').forEach(x=>x.setAttribute('aria-checked','false'));
+  }
+}));
+document.getElementById('cookieAccept').addEventListener('click',()=>saveCookieChoice({necessary:true,analytics:true,marketing:true,donotsell:false}));
+document.getElementById('cookieDecline').addEventListener('click',()=>saveCookieChoice({necessary:true,analytics:false,marketing:false,donotsell:true}));
+document.getElementById('cookieSave').addEventListener('click',()=>saveCookieChoice(readPrefs()));
+document.getElementById('cookieManage').addEventListener('click',()=>{
+  const open=cookie.classList.toggle('manage');
+  document.getElementById('cookieManage').setAttribute('aria-expanded',String(open));
+});
+document.getElementById('cookiePrefsLink').addEventListener('click',openCookieManager);
+document.getElementById('doNotSell').addEventListener('click',()=>{
+  openCookieManager();
+  prefSwitches.forEach(s=>{
+    if(s.dataset.pref==='donotsell')s.setAttribute('aria-checked','true');
+    if(s.dataset.pref==='marketing')s.setAttribute('aria-checked','false');
+  });
+});
+
+/* ===== SCROLL DEPTH PROMPTS (once each per session) ===== */
+const nudgePlan=[{id:'nudge1',at:.42},{id:'nudge2',at:.82}];
+function scrollDepth(){
+  const h=document.documentElement;
+  return (window.scrollY+window.innerHeight)/h.scrollHeight;
+}
+function checkNudges(){
+  if(popup.classList.contains('open'))return;
+  const d=scrollDepth();
+  nudgePlan.forEach(n=>{
+    if(d<n.at||sessionStorage.getItem('gha_'+n.id))return;
+    if(document.querySelector('.nudge.open'))return;
+    sessionStorage.setItem('gha_'+n.id,'1');
+    document.getElementById(n.id).classList.add('open');
+  });
+}
+window.addEventListener('scroll',checkNudges,{passive:true});
+document.querySelectorAll('[data-dismiss]').forEach(b=>b.addEventListener('click',()=>{
+  document.getElementById(b.dataset.dismiss).classList.remove('open');
+}));
+
+/* ===== ACCESSIBILITY WIDGET ===== */
+const a11yFab=document.getElementById('a11yFab');
+const a11yPanel=document.getElementById('a11yPanel');
+const a11yButtons=[...a11yPanel.querySelectorAll('[data-a11y]')];
+function a11yApply(){
+  const on=a11yButtons.filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.dataset.a11y);
+  a11yButtons.forEach(b=>document.body.classList.toggle(b.dataset.a11y,on.includes(b.dataset.a11y)));
+  store('gha_a11y',JSON.stringify(on));
+}
+(function a11yRestore(){
+  let saved=[];try{saved=JSON.parse(load('gha_a11y')||'[]');}catch(e){}
+  a11yButtons.forEach(b=>b.setAttribute('aria-pressed',String(saved.includes(b.dataset.a11y))));
+  a11yApply();
+})();
+function toggleA11y(open){
+  a11yPanel.classList.toggle('open',open);
+  a11yFab.setAttribute('aria-expanded',String(open));
+  if(open)a11yPanel.querySelector('.close').focus();else a11yFab.focus();
+}
+a11yFab.addEventListener('click',()=>toggleA11y(!a11yPanel.classList.contains('open')));
+document.getElementById('a11yClose').addEventListener('click',()=>toggleA11y(false));
+a11yButtons.forEach(b=>b.addEventListener('click',()=>{
+  b.setAttribute('aria-pressed',String(b.getAttribute('aria-pressed')!=='true'));
+  a11yApply();
+}));
+document.getElementById('a11yReset').addEventListener('click',()=>{
+  a11yButtons.forEach(b=>b.setAttribute('aria-pressed','false'));
+  a11yApply();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&a11yPanel.classList.contains('open'))toggleA11y(false);
+});
+
+/* ===== CHAT ASSISTANT ===== */
+const chat=document.getElementById('chat');
+const chatFab=document.getElementById('chatFab');
+const chatLog=document.getElementById('chatLog');
+const chatChips=document.getElementById('chatChips');
+const chatForm=document.getElementById('chatForm');
+const chatInput=document.getElementById('chatInput');
+const SALES='https://www.ghasales.com/';
+const communities={
+  latitude:{name:'Latitude 61',city:'Palm Springs',blurb:'2 to 3 bedroom homes with rooftop decks and pools, inspired by Palm Springs modern architecture.',img:'#communities'},
+  rio:{name:'Rio Del Sol',city:'Cathedral City',blurb:'four neighborhoods in one master planned community with onsite amenities.',img:'#communities'},
+  volare:{name:'Volaré',city:'Bermuda Dunes',blurb:'an exclusive gated enclave of only 18 elevated homesites with expansive views.',img:'#communities'},
+  aventura:{name:'Aventura Palms',city:'Desert Hot Springs',blurb:'a limited collection of 34 homes with three and four bedroom plans and San Jacinto mountain views.',img:'#communities'}
+};
+const link=(label,href,ext)=>`<a href="${href}"${ext?' target="_blank" rel="noopener"':''}>${label}<span aria-hidden="true">${ext?'↗':'→'}</span></a>`;
+const defaultChips=['Active communities','Custom homes','Pricing and availability','Schedule a tour','Talk to a person'];
+
+function reply(text){
+  const t=text.toLowerCase();
+  const has=(...w)=>w.some(x=>t.includes(x));
+  if(has('human','person','agent','someone','real','representative','speak','talk to'))
+    return {text:'Of course. Rhonda Knerr and our sales managers are available by phone, or I can have someone text you back within minutes.',links:[link('Call (760) 969-1400','tel:7609691400'),link('Have a sales manager text me','#popup-open')],chips:['Active communities','Schedule a tour']};
+  if(has('latitude','palm springs'))return commReply('latitude');
+  if(has('rio','cathedral'))return commReply('rio');
+  if(has('volar','bermuda'))return commReply('volare');
+  if(has('aventura','desert hot springs'))return commReply('aventura');
+  if(has('coming soon','nova','josephina','foothill','village','future','next'))
+    return {text:'Four new communities are on the horizon: Nova and 17@Josephina in Rancho Mirage, Foothill Cove in Cathedral City, and The Village at Racquet Club in Palm Springs. Join the interest list and you will hear about releases first.',links:[link('See coming soon communities','.soon'),link('Join the interest list','#popup-open')],chips:['Active communities','Talk to a person']};
+  if(has('price','pricing','cost','how much','afford','availability','available','inventory','quick move','move in'))
+    return {text:'Current pricing, floor plans and quick move in homes are kept up to date on GHA Sales, our dedicated listings site. I can also have a sales manager send you a personalized price sheet.',links:[link('Browse pricing on GHA Sales',SALES,true),link('Send me pricing','#popup-open')],chips:['Active communities','Schedule a tour']};
+  if(has('tour','visit','appointment','walk','see the','model','open house','schedule'))
+    return {text:'Happy to set that up. Share your name and mobile number and a sales manager will confirm a private tour time with you by text.',links:[link('Request a private tour','#popup-open'),link('Call (760) 969-1400','tel:7609691400')],chips:['Active communities','Pricing and availability']};
+  if(has('custom','dream home','build my','architect','lot','estate'))
+    return {text:'Our custom division manages architects, interior designers and trusted trades so you have one point of contact from first sketch to final walkthrough.',links:[link('Explore custom homes','#custom'),link('Start a custom conversation','#popup-open')],chips:['Commercial projects','Talk to a person']};
+  if(has('commercial','retail','office','restaurant','business','tenant'))
+    return {text:'GHA builds retail centers, restaurants, bank branches and office space across the valley, from ground up construction to tenant improvements.',links:[link('See commercial work','#commercial'),link('Discuss a project','#popup-open')],chips:['Custom homes','Talk to a person']};
+  if(has('team','who','staff','owner','mario','ceo','sales manager'))
+    return {text:'GHA is led by President and CEO Mario J. Gonzales, with Rhonda Knerr directing sales alongside managers Colleena Vogt, Christina Ewalt, Todd Brinton and Abby Helfand.',links:[link('Meet the team','#team')],chips:['Schedule a tour','Talk to a person']};
+  if(has('address','where','located','office','hours','phone','contact','email','call'))
+    return {text:'Our office is at 30-875 Date Palm Drive, Suite C-2, Cathedral City, CA 92234. Call (760) 969-1400 or leave your details and we will reach out.',links:[link('Call (760) 969-1400','tel:7609691400'),link('Contact form','#popup-open')],chips:['Active communities','Schedule a tour']};
+  if(has('community','communities','homes','neighborhood','buy','looking','new home','home'))
+    return {text:'We have four communities selling now: Latitude 61 in Palm Springs, Rio Del Sol in Cathedral City, Volaré in Bermuda Dunes and Aventura Palms in Desert Hot Springs. Which one would you like to know more about?',links:[link('View all communities','#communities'),link('Browse listings on GHA Sales',SALES,true)],chips:['Latitude 61','Rio Del Sol','Volaré','Aventura Palms']};
+  if(/\b(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(t))
+    return {text:'Hello! I can help you find the right community, get pricing, or set up a tour. What are you looking for?',chips:defaultChips};
+  if(has('thank'))return {text:'You are very welcome. Anything else I can help with?',chips:defaultChips};
+  if(has('heroes','hero','police','fire','nurse','teacher','veteran'))
+    return {text:'Our Homes for Heroes program thanks first responders, educators, healthcare workers and military families with special incentives on a new GHA home.',links:[link('Learn about Homes for Heroes','#community'),link('Ask about eligibility','#popup-open')],chips:['Active communities','Talk to a person']};
+  if(has('referral','refer','friend'))
+    return {text:'With our friends and family program, every closed home you refer earns you a thank you from GHA. A sales manager can walk you through the details.',links:[link('Referral program','#community'),link('Talk to a person','#popup-open')],chips:defaultChips};
+  return {text:'I want to make sure I point you in the right direction. Are you looking for a new home, custom build, commercial project, or would you like to speak with someone?',chips:defaultChips};
+}
+function commReply(k){
+  const c=communities[k];
+  return {text:`${c.name} in ${c.city} is ${c.blurb}`,links:[link('Read more','#communities'),link(`See ${c.name} listings`,SALES,true),link('Schedule a tour','#popup-open')],chips:['Pricing and availability','Schedule a tour','Talk to a person']};
+}
+function addMsg(html,who){
+  const m=document.createElement('div');
+  m.className='msg '+who;m.innerHTML=html;
+  chatLog.appendChild(m);chatLog.scrollTop=chatLog.scrollHeight;return m;
+}
+function setChips(list){
+  chatChips.innerHTML='';
+  (list||[]).forEach(c=>{
+    const b=document.createElement('button');b.type='button';b.textContent=c;
+    b.addEventListener('click',()=>send(c));chatChips.appendChild(b);
+  });
+}
+function botSay(r){
+  const typing=addMsg('<i></i><i></i><i></i>','bot typing');
+  setChips([]);
+  setTimeout(()=>{
+    typing.remove();
+    let html=r.text;
+    if(r.links)html+='<div class="links">'+r.links.join('')+'</div>';
+    const m=addMsg(html,'bot');
+    m.querySelectorAll('a[href="#popup-open"]').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();openChat(false);
+      sessionStorage.removeItem('gha_cta_seen');popupCard.classList.remove('done');openPopup();
+    }));
+    m.querySelectorAll('a[href^="#"],a[href^="."]').forEach(a=>{
+      if(a.getAttribute('href')==='#popup-open')return;
+      a.addEventListener('click',e=>{
+        const target=document.querySelector(a.getAttribute('href'));
+        if(target){e.preventDefault();openChat(false);target.scrollIntoView({behavior:'smooth'});}
+      });
+    });
+    setChips(r.chips);
+  },650+Math.min(text_len(r.text)*6,900));
+}
+const text_len=s=>s.length;
+function send(text){
+  if(!text.trim())return;
+  addMsg(text.replace(/</g,'&lt;'),'user');
+  chatInput.value='';
+  botSay(reply(text));
+}
+let chatStarted=false;
+function openChat(open){
+  chat.classList.toggle('open',open);
+  chatFab.classList.toggle('hidden',open);
+  chatFab.setAttribute('aria-expanded',String(open));
+  if(open){
+    if(!chatStarted){
+      chatStarted=true;
+      botSay({text:'Hi, welcome to GHA Companies. I can help you explore our communities, check pricing on GHA Sales, or schedule a tour with a sales manager. How can I help?',chips:defaultChips});
+    }
+    setTimeout(()=>chatInput.focus(),350);
+  }else chatFab.focus();
+}
+chatFab.addEventListener('click',()=>openChat(true));
+document.getElementById('chatClose').addEventListener('click',()=>openChat(false));
+chatForm.addEventListener('submit',e=>{e.preventDefault();send(chatInput.value);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chat.classList.contains('open'))openChat(false);});
 </script>
 </body>
 </html>
