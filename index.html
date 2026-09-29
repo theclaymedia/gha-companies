@@ -1165,8 +1165,8 @@ if(sessionStorage.getItem('gha_cta_seen')!=='1'){
 /* ===== COOKIE CONSENT + PRIVACY CHOICES (after CTA closes) ===== */
 const cookie=document.getElementById('cookie');
 const prefSwitches=[...cookie.querySelectorAll('.sw[data-pref]')];
-const store=(k,v)=>{try{localStorage.setItem(k,v);}catch(e){}};
-const load=k=>{try{return localStorage.getItem(k);}catch(e){return null;}};
+function store(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function load(k){try{return localStorage.getItem(k);}catch(e){return null;}}
 function showCookieIfNeeded(){
   if(load('gha_cookie_choice'))return;
   if(popup.classList.contains('open'))return;
